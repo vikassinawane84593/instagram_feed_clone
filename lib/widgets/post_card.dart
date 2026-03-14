@@ -1,8 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../models/post_model.dart';
 import '../providers/post_provider.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+
 
 class PostCard extends StatefulWidget {
   final Post post;
@@ -26,7 +27,7 @@ class _PostCardState extends State<PostCard> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
 
-        /// profile row
+
         ListTile(
           leading: CircleAvatar(
             backgroundImage:
@@ -36,7 +37,7 @@ class _PostCardState extends State<PostCard> {
           trailing: const Icon(Icons.more_vert),
         ),
 
-        /// image carousel
+
         SizedBox(
           height: 300,
           child: PageView.builder(
@@ -59,7 +60,6 @@ class _PostCardState extends State<PostCard> {
           ),
         ),
 
-        /// dot indicator
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: List.generate(
@@ -78,7 +78,6 @@ class _PostCardState extends State<PostCard> {
           ),
         ),
 
-        /// action buttons
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Row(
@@ -136,7 +135,6 @@ class _PostCardState extends State<PostCard> {
           ),
         ),
 
-        /// likes
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
           child: Text(
@@ -145,7 +143,6 @@ class _PostCardState extends State<PostCard> {
           ),
         ),
 
-        /// caption
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
           child: RichText(

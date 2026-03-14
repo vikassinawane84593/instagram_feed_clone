@@ -13,7 +13,6 @@ class PostShimmer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
 
-          /// profile row shimmer
           ListTile(
             leading: const CircleAvatar(radius: 20),
             title: Container(
@@ -22,7 +21,6 @@ class PostShimmer extends StatelessWidget {
             ),
           ),
 
-          /// image shimmer
           Container(
             height: 300,
             color: Colors.white,
@@ -30,7 +28,6 @@ class PostShimmer extends StatelessWidget {
 
           const SizedBox(height: 10),
 
-          /// caption shimmer
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),
             child: Container(
