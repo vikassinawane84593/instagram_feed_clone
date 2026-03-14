@@ -1,16 +1,66 @@
-# instagram_feed_clone
+# Flutter Instagram Feed Clone
 
-A new Flutter project.
+A pixel-perfect replication of the Instagram Home Feed built with Flutter.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+* Instagram style Home Feed UI
+* Stories Row
+* Image Carousel (Multiple Images)
+* Dot Indicator
+* Like Toggle ❤️
+* Save Toggle 🔖
+* Double Tap to Like
+* Pinch to Zoom Image
+* Infinite Scroll (Pagination)
+* Shimmer Loading State
+* Snackbar for Unimplemented Buttons
 
-A few resources to get you started if this is your first Flutter project:
+## Architecture
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+This project follows a clean architecture with separation of concerns.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Folder Structure:
+
+lib/
+
+* models → Post data model
+* services → Repository for fetching mock data
+* providers → State management using Provider
+* widgets → Reusable UI components
+* screens → Application screens
+
+State Management: **Provider**
+
+## Mock Data Layer
+
+Posts are fetched using a repository layer which simulates a network request with a **1.5 second delay**.
+
+Pagination is implemented to load **10 posts per page**.
+
+## Packages Used
+
+* provider
+* cached_network_image
+* shimmer
+
+## Run Project
+
+Clone the repository and run:
+
+flutter pub get
+flutter run
+
+## Demo
+
+The demo video demonstrates:
+
+* Shimmer loading state
+* Infinite scrolling
+* Image carousel
+* Pinch to zoom
+* Like and save toggle
+
+## Author
+
+Vikas Sonawane
