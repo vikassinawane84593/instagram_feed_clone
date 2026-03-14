@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../providers/post_provider.dart';
 import '../widgets/post_card.dart';
+import '../widgets/post_shimmer.dart';
+import '../widgets/story_item.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -51,33 +54,56 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
 
-      body: ListView.builder(
+      body: Column(
+        children: [
 
-        controller: _scrollController,
+          /// STORIES ROW
+          SizedBox(
+            height: 100,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 10,
+              itemBuilder: (context, index) {
 
-        itemCount: provider.posts.length +
+                return const StoryItem(
+                  imageUrl:
+                  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+                  username: "user",
+                );
 
-            (provider.isLoading ? 1 : 0),
+              },
+            ),
+          ),
 
-        itemBuilder: (context, index) {
+          const Divider(),
 
-          if (index < provider.posts.length) {
+          /// POST FEED
+          Expanded(
+            child: ListView.builder(
 
-            final post = provider.posts[index];
+              controller: _scrollController,
 
-            return PostCard(post: post);
+              itemCount: provider.posts.length +
+                  (provider.isLoading ? 1 : 0),
 
-          } else {
+              itemBuilder: (context, index) {
 
-            return const Padding(
-              padding: EdgeInsets.all(20),
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
-            );
-          }
+                if (index < provider.posts.length) {
 
-        },
+                  final post = provider.posts[index];
+
+                  return PostCard(post: post);
+
+                } else {
+
+                  return const PostShimmer();
+
+                }
+
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
